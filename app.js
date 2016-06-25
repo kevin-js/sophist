@@ -32,10 +32,23 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+	console.log(req.cookies);
 });
 
-var port = process.env.PORT || 1337;
+app.get('/home', function(req, res){
+	res.sendFile(path.join(__dirname, 'static/home.html'));
+});
+
+app.get('/profile', function(req, res){
+	res.sendFile(path.join(__dirname, 'static/profile.html'));
+});
+
+
+app.get('/matches', function(req, res){
+	res.sendFile(path.join(__dirname, 'static/matches.html'));
+});
+
+var port = process.env.PORT || 3000;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');

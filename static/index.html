@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+   <head>
+      <title>Sophist.</title>
+      <link rel = "stylesheet" href = "css/slidebars.css">
+      <!-- Font -->
+      <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+      <!-- Our CSS -->
+      <link rel="stylesheet" type="text/css" href="css/styleSheet.css"> 
+
+       <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
+
+      <!--Attribute plugin-->
+       <script type="text/javascript"
+        src="https://raw.github.com/meetselva/attrchange/master/attrchange.js">
+        </script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery.min.js">
+       </script>
+        <script type="text/javascript" src="js/splash.js"></script>
+
+       <!--Parse JS-->
+       <script type="text/javascript" src="https://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+
+        <script type="text/javascript">
+
+            Parse.initialize("nwM6OmQqbuqz6k9NdHf1oqMGuG8GEASFyJbwCUEV", "2m4qPaoKmEBqsrGLPcAWGUwNHLlZ53JruXGHela9");
+
+            var currentUser = Parse.User.current();
+
+            if (currentUser !== null) {
+                //alert("You are logged in!");
+                window.location.replace("http://www.mysophist.com/home.html");
+            }
+            
+        </script>
+
+      <script type="text/javascript">
+        function jumpToSection(event, targetSection){
+            event.preventDefault();
+            var controlString = null;
+            switch(targetSection){
+                case 'section1':
+                controlString = '#about1';
+                break;
+                case 'section2':
+                controlString = '#team';
+                break;
+                case 'section3':
+                controlString = '#about1';
+                break;
+                case 'section4':
+                controlString = '#team';
+                break;
+                default:
+                  controlString = '#';
+            }
+            var sectionOffset = $(controlString).position().top;
+                $('body,html').animate({
+                scrollTop : sectionOffset + 1
+                }, 1000);
+
+        }
+        </script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+  
+        window.scrollTo(0, 1);
+        
+        $('.js #menu-toggle').click(function (e) {
+            $('body').toggleClass('active');
+            e.preventDefault();
+        });
+        });
+        </script>
+
+   </head>
+    
+   <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+      <div id="invisible-nav" class="sb-slide navbar navbar-fixed-top filterDiv">
+            <a id="index" class="navbar-brand" href="#">Sophist</a>
+
+            <a id="login" class="full-nav" href="#">Log In</a>
+            <a id="signup" class="full-nav" href="#">Sign Up</a>
+            <a id="section4" class="full-nav" onclick="jumpToSection(event, this.id)" href="#">Team</a>
+            <a id="section3" class="full-nav" onclick="jumpToSection(event, this.id)" href="#">About</a>
+
+            <button id="nav-toggle" type="button" class="navbar-toggle sb-toggle-right" data-toggle="offcanvas" onclick="blurFilter()" data-target="#myNavmenu" data-canvas="body">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+      </div>
+
+      <div id="sophistNavBar" class="sb-slidebar sb-right sb-style-push">
+             <ul class="nav navmenu-nav">
+                <li><a class="navmenu-title" href="#">Sophist</a></li>
+                <hr class="tab-line">
+                <li><a id="section1" class="menutab topOfList" onclick="jumpToSection(event, this.id)" href="#">About</a></li>
+                <li><a id="section2" class="menutab" onclick="jumpToSection(event, this.id)" href="#">Team</a></li>
+                <li><a id= "signup" class="menutab" href="#">Sign Up</a></li>
+                <li><a id="login" class="menutab" href="#">Log In</a></li>
+            </ul>
+      </div>
+
+      <div class="filterDiv">
+         <div id="carousel" class="carousel fade-carousel carousel-fade slide" data-ride="carousel" data-interval="4000">
+          
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item slides active">
+              <div class="slide-1"></div>
+              <div class="hero">
+                <hgroup>
+                    <span class="motto">The free market for tutors.</span>        
+                </hgroup>
+                <button onclick="location.href = 'http://mysophist.com/signup.html';" class="btn btn-hero btn-lg splash-button" role="button">Sign Up</button>
+                <button onclick="location.href = 'http://mysophist.com/login.html';" class="btn btn-login btn-lg splash-button" role="button">Log in</button>
+              </div>
+            </div>
+            <div class="item slides">
+              <div class="slide-2"></div>
+              <div class="hero">        
+                <hgroup>
+                    <span class="motto">Tutoring on demand.</span>        
+                </hgroup>       
+                <button onclick="location.href = 'http://mysophist.com/signup.html';" class="btn btn-hero btn-lg splash-button" role="button">Sign Up</button>
+                <button onclick="location.href = 'http://mysophist.com/login.html';" class="btn btn-login btn-lg splash-button" role="button">Log in</button>
+              </div>
+            </div>
+            <div class="item slides">
+              <div class="slide-3"></div>
+              <div class="hero">        
+                <hgroup>
+                    <span class="motto">Find your tutor today.</span>        
+                </hgroup>
+                <button id="signup" class="btn btn-hero btn-lg splash-button" role="button">Sign Up</button>
+                <button id="login" class="btn btn-login btn-lg splash-button" role="button">Log In</button>
+              </div>
+            </div>
+          </div>
+          <div id="about1">
+
+            <div class="aboutRow1">
+
+                <div class="row aboutHeading">
+
+                  <div class="col-xs-12">Accessible. Effective. Personalized.</div>
+
+                </div>
+
+                <div class="aboutHeadingRow">
+                  <div class="col-xs-1"></div>
+
+                  <span class="firstCaption col-xs-10">
+
+                    Sophist connects students for quality, affordable one-on-one tutoring in a free market. Tutors and tutees set their own terms in a collaborative learning community.
+
+                  </span>
+
+                  <div class="col-xs-1"></div>
+                </div>
+
+            </div>
+
+
+            <div class="aboutRow2">
+
+              <div class="aboutFirst col-xs-12 col-s-4 col-sm-4 col-lg-4">
+
+                <div class="divPics">
+                    <span class="glyphicon glyphicon-shopping-cart divPics" aria-hidden="true"></span>
+                </div>
+                <div class="captionRow1">
+                  Shop for your tutor. 
+                </div>
+                <div class="captionRow2">
+                  Tutor profiles reveal their areas of expertise, working hours, and rates. 
+                </div>
+
+              </div>
+
+
+              <div class="aboutFirst col-xs-12 col-s-4 col-sm-4 col-lg-4">
+
+                <div class="divPics">
+                    <span class="glyphicon glyphicon-piggy-bank divPics" aria-hidden="true"></span>
+                </div>
+                <div class="captionRow1">
+                  Choose your rates. 
+                </div>
+
+                <div class="captionRow2">
+                  Tutors and tutees set their own rates.
+                </div>
+
+              </div>
+
+
+              <div class="aboutFirst col-xs-12 col-s-4 col-sm-4 col-lg-4">
+
+                <div class="divPics">
+                    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                </div>
+                <div class="captionRow1">
+                  Organic Accountability.
+                </div>
+
+                <div class="captionRow2">
+                  Tutor endorsements and reviews are open source. 
+                </div>
+
+              </div>
+
+            </div>
+
+
+        </div>
+
+          <div id="about2">
+
+          	<div class="row">
+          		<span class="connectCaption1 col-xs-12">Connect with a Tutor.</span>
+          	</div>	
+
+          	<div class="row">
+          		<span class="connectCaption2 col-xs-12">Shop for your tutor to find your perfect match.</span>
+          	</div>	
+
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          			<div class="aboutBox">
+
+	                 	<div class="boxGlyph">
+	                    	<span class="glyphicon glyphicon-search">
+	                    		<span class="boxText1">Search</span>
+	                    	</span>
+	                    </div>
+
+	                    <div class="boxText2">
+	                    	<span>Enter a course name, code, or subject to search for available tutors.</span>
+	                    </div>
+
+	                  	</div>
+                	</div>
+
+               
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                  <div class="aboutBox">
+
+                    <div class="boxGlyph">
+                    	<span class="glyphicon glyphicon-heart">
+                    		<span class="boxText1">Select</span>
+                    	</span>
+                    </div>
+
+                    <div class="boxText2">
+                    	<span>Select a tutor after reviewing their rates, experiences, and endorsements.</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                  <div class="aboutBox">
+                    <div class="boxGlyph">
+                    	<span class="glyphicon glyphicon-envelope">
+                    		<span class="boxText1">Request</span>
+                    	</span>
+                    </div>
+
+                    <div class="boxText2">
+                    	<span>Request a tutor. You will be notifed when they accept your request.</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+
+          <div id="about3">
+            <div class="row push2">
+
+            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="iPhone">
+                <div class="iPhoneInner">
+                  <div class="camera"></div>
+                  <div class="smallTopCirc"></div>
+                  <div class="oval"></div>
+                  <div class="iScreen">
+                    <div class="usman">
+                    <img src="images/mobile-profile.jpg" />
+                    </div>
+                  </div>
+                  <div class="circButton"></div>
+                </div>
+              </div>
+              <div class="tapHere"><span>Click home button</span></div>
+              </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 change">
+   				<div class="row">
+          		<span class="connectCaption3">How to Tutor.</span>
+          		</div>	
+
+          		<div class="row push1">
+          			<span class="connectCaption4">Accept a tutee and get tutoring.</span>
+          		</div>	
+
+          		<div class="row push">
+	          		<span class="number">
+	          			1 &nbsp
+	          			<span class="connectCaption5">Sign up and create a profile, entering your rates, experience, and availability.</span>
+	          		</span>
+          		</div>
+
+          		<div class="row push">
+	          		<span class="number">
+	          			2 &nbsp
+	          			<span class="connectCaption5">Tutees will request sessions. You can accept or deny depending on their rates and availability.</span>
+	          		</span>
+          		</div>	
+
+          		<div class="row push">
+	          		<span class="number">
+	          			3 &nbsp
+	          			<span class="connectCaption5">During the session, hit "Start" on the Session Timer, and "End" to automatically calculate your payment.</span>
+	          		</span>
+          		</div>	
+          	</div>
+          </div>
+
+         <script>
+          $( ".circButton" ).click(function() {
+            $( '.iScreen' ).toggleClass( "turnOn" );
+            $( '.usman' ).toggleClass( "showMe" );
+          });
+          </script>
+
+
+          <div id="team">
+            <br>
+            <br>
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <div href="#" class="thumbnail1" style="text-decoration: none;">
+                            <img src="images/Anthony.jpg" class="team-image">
+                            <div class="team-name"> 
+                                <span>Anthony Lafontant</span>
+                            </div>
+                            <div class="title"> 
+                                <span>Back-End Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                      <div href="#" class="thumbnail1" style="text-decoration: none;">
+                          <img src="images/Andre.jpg" class="team-image">
+                          <div class="team-name"> 
+                              <span>Andre Chen</span>
+                          </div>
+                          <div class="title"> 
+                              <span>Back-End Engineer</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-md-4 col-lg-4">
+                      <div href="#" class="thumbnail1" style="text-decoration: none;">
+                          <img src="images/Rachael.jpg" class="team-image">
+                          <div class="team-name"> 
+                              <span>Rachael Rhee</span>
+                          </div>
+                          <div class="title"> 
+                              <span>Front-End Engineer</span>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+
+             <div class="row">
+                <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div href="#" class="thumbnail1" style="text-decoration: none;">
+                        <img src="images/Ashley.jpg" class="team-image">
+                        <div class="team-name"> 
+                            <span>Ashley Lord</span>
+                        </div>
+                        <div class="title"> 
+                            <span>Front-End Engineer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div href="#" class="thumbnail1" style="text-decoration: none;">
+                        <img src="images/Kevin.jpg" class="team-image">
+                        <div class="team-name"> 
+                            <span>Kevin Guh</span>
+                        </div>
+                        <div class="title"> 
+                            <span>iOS Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div href="#" class="thumbnail1" style="text-decoration: none;">
+                        <img src="images/Hunter.jpg" class="team-image">
+                        <div class="team-name"> 
+                            <span>Hunter Estrada</span>
+                        </div>
+                        <div class="title"> 
+                            <span>iOS Engineer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+        <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+    
+      <script 
+         src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+      <script src = "js/slidebars.js"></script>
+      
+
+      <script>
+        (function($) {
+          $(document).ready(function() {
+            $.slidebars({
+              disableOver: 850, // integer or false
+            });
+          });
+        }) (jQuery);
+      </script>
+
+          <!--App JS-->
+       <script type="text/javascript" src="../cloud/main.js"></script>
+
+       <!--Carousel JS-->
+       <script type="text/javascript" src="js/carousel.js"></script>
+       <script type="text/javascript" src="js/bootstrap-transition.js"></script>
+
+       <!-- JQuery -->
+       <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+       <script type="text/javascript" src="js/hamburger.js"></script>
+       
+       <!-- Bootstrap JS-->
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+       <!-- Jasny-->
+       <!--<script src="https://code.jquery.com/jquery.js"></script>-->
+       <script src="js/jasny-bootstrap.min.js"></script>
+
+       <!--Links JS-->
+       <script type="text/javascript" src="js/links.js"></script>
+        
+   </body>
+    
+</html>
